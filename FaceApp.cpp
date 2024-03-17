@@ -10,7 +10,7 @@ FaceApp::FaceApp(QWidget *parent)
     ui->setupUi(this);
     QTimer* timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &FaceApp::show_frame);
-    timer->start(30); // Aktualizuj klatkę co 60 ms
+    timer->start(40); 
 }
 
 FaceApp::~FaceApp()

@@ -33,7 +33,7 @@ cv::Mat VideoProcessor::capture_frame()
 
 cv::Mat VideoProcessor::process_frame(cv::Mat frame)
 {
-	face_detector->detectMultiScale(frame, faces, 1.1, 4, cv::CASCADE_SCALE_IMAGE, cv::Size(50, 50));
+	face_detector->detectMultiScale(frame, faces, 2, 3, cv::CASCADE_SCALE_IMAGE, cv::Size(50, 50));
 	for (int i = 0; i < faces.size(); i++) { //for locating the face
 		cv::Mat faceROI = frame(faces[i]);//Storing face in the matrix//
 		int x = faces[i].x;//Getting the initial row value of face rectangle's starting point//
@@ -50,7 +50,7 @@ QImage VideoProcessor::process_and_send()
 	frame_counter++;
 	cv::Mat frame = capture_frame();
 
-	//frame = process_frame(frame);
+	frame = process_frame(frame);
 	QImage qimg(frame.data, frame.cols, frame.rows, frame.step, QImage::Format_RGB888);
 	return qimg.rgbSwapped();
 }
