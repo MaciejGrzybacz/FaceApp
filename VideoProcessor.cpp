@@ -8,7 +8,7 @@ VideoProcessor::VideoProcessor()
 		std::cout << "Cannot open webcam";
 	}
 	face_detector = std::make_unique<cv::CascadeClassifier>();
-	face_detector->load("C:\\Users\\006ma\\opencv\\sources\\data\\haarcascades_cuda\\haarcascade_frontalface_alt.xml");
+	face_detector->load("C:\\Users\\006ma\\opencv\\sources\\data\\haarcascades_cuda\\haarcascade_frontalface_default.xml");
 	faces = std::vector<cv::Rect>();
 	frame_counter = 0;
 }
